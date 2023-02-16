@@ -9,7 +9,7 @@ const newFolderName = function (folders) {
             }
         }
 
-        return `New Folder ` + `(${currentFolderNumber + 1})`;
+        return 'New Folder ' + `(${currentFolderNumber + 1})`;
     }
 }
 
