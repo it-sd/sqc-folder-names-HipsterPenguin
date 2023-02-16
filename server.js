@@ -30,9 +30,8 @@ const newFolderName = function (folders) {
   for (let i = 1; i < numbers.length; i++) {
     if (numbers[i] === nextNumber + 1) {
       nextNumber++
-    }
-    else {
-        break
+    } else {
+      break
     }
   }
 
