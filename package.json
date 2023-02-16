@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint \"**/*.js\""
+    "test": "jasmine",
+    "lint": "eslint \"**/*.js\"",
+    "coverage": "nyc npm test"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,8 @@
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-n": "^15.6.0",
-    "eslint-plugin-promise": "^6.1.1"
+    "eslint-plugin-promise": "^6.1.1",
+    "jasmine": "^4.5.0",
+    "nyc": "^15.1.0"
   }
 }

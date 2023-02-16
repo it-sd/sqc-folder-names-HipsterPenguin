@@ -1,18 +1,41 @@
 const newFolderName = function (folders) {
 
-    let currentFolderNumber = 0;
-
-    if (folders.length !== 0 && Array.isArray(folders)) {
-        for (let i = 0; i < folders.length; i++) {
-            if (typeof folders[i] === "string" && folders[i].toLowerCase().includes('new folder')) {
-                currentFolderNumber++;
-            }
-        }
-
-        return 'New Folder ' + `(${currentFolderNumber + 1})`;
+    if (folders.length === 0) {
+        return 'New Folder'
     }
+    
+    let regex = /New Folder \((\d+)\)/
+    let numbers = [];
+    let containsNewFolder = false;
+    
+    for (let i = 0; i < folders.length; i++) {
+        if (folders[i] === 'New Folder') {
+            numbers.push(1)
+            containsNewFolder = true
+        }
+        else if (regex.test(folders[i])) {
+            numbers.push(parseInt(folders[i].match(regex)[1]))
+        }
+    }
+
+    if (numbers.length === 0) {
+        return 'New Folder'
+    }
+
+    numbers.sort()
+    nextNumber = numbers[0]
+
+    if (nextNumber !== 1 || !containsNewFolder) {
+        return 'New Folder'
+    }
+
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] === nextNumber + 1) {
+            nextNumber++
+        }
+    }
+
+    return `New Folder (${nextNumber + 1})`
 }
 
-console.log(newFolderName(['New Folder'])); // New Folder (2)
-console.log(newFolderName(['New Folder', 'New Folder (2)', 'New Folder (3)', 1, 2, 3])); // New Folder (4)
-console.log(newFolderName(["New Folder", "New Folder (2)", "New Folder (3)", "New Folder (4)"])); // New Folder (5)
+module.exports = { newFolderName }
