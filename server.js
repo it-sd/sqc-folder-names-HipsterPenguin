@@ -31,6 +31,9 @@ const newFolderName = function (folders) {
     if (numbers[i] === nextNumber + 1) {
       nextNumber++
     }
+    else {
+        break
+    }
   }
 
   return `New Folder (${nextNumber + 1})`
