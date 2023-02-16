@@ -29,7 +29,7 @@ const newFolderName = function (folders) {
         return 'New Folder'
     }
 
-    for (let i = 0; i < numbers.length; i++) {
+    for (let i = 1; i < numbers.length; i++) {
         if (numbers[i] === nextNumber + 1) {
             nextNumber++
         }
